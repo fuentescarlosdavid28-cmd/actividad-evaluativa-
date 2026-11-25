@@ -33,6 +33,8 @@ El componente se llama `<plato-menu>`:
 3. Deben verse 3 tarjetas de platos con nombre, precio, disponibilidad y descripción.
 4. Para revisar el Shadow DOM: abrir las herramientas de desarrollo (F12), pestaña *Elements*, y expandir cualquier `<plato-menu>` para ver su `#shadow-root (open)`.
 
+Probado en Microsoft Edge, sin errores en la consola.
+
 ## Requisitos de la práctica
 
 - **R1 · Template propio:** `<template id="plato-menu-template">` en `index.html`, con su `<style>` y los marcadores vacíos `.nombre`, `.precio` y `.disponibilidad`.
