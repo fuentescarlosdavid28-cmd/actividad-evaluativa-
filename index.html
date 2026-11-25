@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú del restaurante</title>
+  <script src="js/main.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem 1rem;
+      font-family: system-ui, sans-serif;
+      background: #f6f1ea;
+      color: #2b2118;
+    }
+    h1 {
+      text-align: center;
+      margin: 0 0 2rem;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú del día</h1>
+
+  <!-- R1 -->
+  <template id="plato-menu-template">
+    <style>
+      :host {
+        display: block;
+      }
+      .plato {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.25rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .encabezado {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        border-bottom: 1px dashed #d9cbb8;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .nombre {
+        margin: 0;
+        font-size: 1.15rem;
+      }
+      .precio {
+        font-weight: 700;
+        color: #a4471c;
+        white-space: nowrap;
+      }
+      .disponibilidad {
+        display: inline-block;
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        background: #efe6da;
+        margin-bottom: 0.75rem;
+      }
+      .descripcion {
+        color: #5c4d3f;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+    </style>
+    <article class="plato">
+      <div class="encabezado">
+        <h2 class="nombre"></h2>
+        <span class="precio"></span>
+      </div>
+      <span class="disponibilidad"></span>
+      <div class="descripcion">
+        <!-- R4 -->
+        <slot>Sin descripción.</slot>
+      </div>
+    </article>
+  </template>
+
+  <!-- R5 -->
+  <main>
+    <plato-menu nombre="Bandeja paisa" precio="32000" disponibilidad="Disponible">
+      Frijoles, arroz, chicharrón, carne molida, huevo, maduro y arepa.
+    </plato-menu>
+
+    <plato-menu nombre="Ajiaco santafereño" precio="28000" disponibilidad="Agotado">
+      Sopa de tres papas con pollo, mazorca, alcaparras y crema de leche.
+    </plato-menu>
+
+    <plato-menu nombre="Limonada de coco" precio="9500" disponibilidad="Disponible">
+      Bebida fría de limón con leche de coco.
+    </plato-menu>
+  </main>
+</body>
+</html>
